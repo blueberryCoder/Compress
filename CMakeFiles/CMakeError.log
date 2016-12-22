@@ -1,0 +1,36 @@
+Determining if the C compiler works failed with the following output:
+Change Dir: E:/AsWorkSpace/SharesProject/Compress/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_6336d.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) 生成引擎版本 14.0.24723.2
+版权所有(C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 12/21/2016 5:29:15 PM。
+项目中不存在 BeforeTargets 特性中的“C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)”位置列出的目标“BeforeGenerateProjectPriFile”，将忽略该目标。
+节点 1 上的项目“E:\AsWorkSpace\SharesProject\Compress\CMakeFiles\CMakeTmp\cmTC_6336d.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_6336d.dir\Debug\”。
+  正在创建目录“E:\AsWorkSpace\SharesProject\Compress\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_6336d.dir\Debug\cmTC_6336d.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_6336d.dir\Debug\cmTC_6336d.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6336d.dir\Debug\\" /Fd"cmTC_6336d.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue E:\AsWorkSpace\SharesProject\Compress\CMakeFiles\CMakeTmp\testCCompiler.c
+  TRACKER : 错误 TRK0005: 未能找到: “CL.exe”。系统找不到指定的文件。
+  
+  
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(356,5): error MSB6006: “CL.exe”已退出，代码为 5。 [E:\AsWorkSpace\SharesProject\Compress\CMakeFiles\CMakeTmp\cmTC_6336d.vcxproj]
+已完成生成项目“E:\AsWorkSpace\SharesProject\Compress\CMakeFiles\CMakeTmp\cmTC_6336d.vcxproj”(默认目标)的操作 - 失败。
+
+生成失败。
+
+“E:\AsWorkSpace\SharesProject\Compress\CMakeFiles\CMakeTmp\cmTC_6336d.vcxproj”(默认目标) (1) ->
+(ClCompile 目标) -> 
+  C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(356,5): error MSB6006: “CL.exe”已退出，代码为 5。 [E:\AsWorkSpace\SharesProject\Compress\CMakeFiles\CMakeTmp\cmTC_6336d.vcxproj]
+
+    0 个警告
+    1 个错误
+
+已用时间 00:00:00.33
+
+
