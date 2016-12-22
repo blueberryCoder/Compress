@@ -3,25 +3,16 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
+
     defaultConfig {
-        applicationId "com.blueberry.compress"
+        applicationId "com.blueberry.test"
         minSdkVersion 11
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
-            cmake {
-//                cppFlags "-frtti -fexceptions"
-//                arguments "-DANDROID_TOOLCHAIN=clang"
-                abiFilters 'armeabi-v7a' ,'armeabi'
-            }
-        }
 
-        ndk {
-            //打包进APK的ABI类型
-            abiFilters 'armeabi-v7a'
-        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -29,35 +20,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    externalNativeBuild {
-        cmake {
-            path "CMakeLists.txt"
-        }
-    }
 
     sourceSets {
         main {
-            java.srcDirs 'src/java'
-            jniLibs.srcDirs  'libs'
-
-//            jniLibs.srcDirs '../libjpeg/prebuilt' 'libs'
-
-
+            jniLibs.srcDirs 'libs'
 
             // 这里没有添加libjpeg.so这个动态库，也是可以执行的。
             // 原因在于android本身使用了 libjpeg.so这个动态库，
             // 这个库存放在/system/lib下，如果我们没有加入
             // libjpeg.so的话，他会去/system/lib下加载这个动态库
 
-            // 如果android手机上没有 libjpeg.so这个动态库的话，
-            // 也可以使用: jniLibs.srcDirs '../libjpeg/prebuilt' 'lib'
-            // 将libjpeg.so加入到apk中
+            // 如果为了保险起见，也可将 libjpeg.so 一并加入到 libs文件夹下
+
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

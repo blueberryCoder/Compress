@@ -1,4 +1,4 @@
-package com.blueberry.compress;
+package com.blueberry.test;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -14,14 +14,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.blueberry.compress.ImageCompress;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity {
+
 
     private static final String TAG = "MainActivity";
 
@@ -65,19 +67,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void compressTest() {
         File file = new File(picPath);
-
         Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
         ImageCompress.nativeCompressBitmap(bitmap, 20, "/sdcard/hfresult.jpg", true);
-
-
-        try {
-
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 20, new FileOutputStream("sdcard/result.jpg"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
     }
 
     /**
