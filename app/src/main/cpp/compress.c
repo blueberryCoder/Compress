@@ -1,16 +1,4 @@
 #include "compress.h"
-#include "lang.h"
-
-#include <android/bitmap.h>
-#include <setjmp.h>
-#include <jpeglib.h>
-
-
-#include <stdlib.h>
-
-
-#define true 1
-#define false 0
 
 
 typedef u_int8_t BYTE;
@@ -23,7 +11,6 @@ struct my_error_mgr {
 typedef struct my_error_mgr *my_error_ptr;
 
 METHODDEF(void)
-
 my_error_exit(j_common_ptr
               cinfo) {
     my_error_ptr myerr = (my_error_ptr) cinfo->err;
@@ -38,9 +25,7 @@ int generateJPEG(BYTE *data, int w, int h, jint quality, const char *name, boole
 
 const char *jstringToString(JNIEnv *env, jstring jstr);
 
-JNIEXPORT jint
-
-JNICALL
+JNIEXPORT jint JNICALL
 Java_com_blueberry_compress_ImageCompress_nativeCompressBitmap(JNIEnv *env, jclass type,
                                                                jobject bitmap, jint quality,
                                                                jstring dstFile_,
@@ -57,7 +42,7 @@ Java_com_blueberry_compress_ImageCompress_nativeCompressBitmap(JNIEnv *env, jcla
         LOGD("AndroidBitmap_getInfo() failed error=%d", ret);
         return ret;
     }
-    if ((ret = AndroidBitmap_lockPixels(env, bitmap, &pixelsColor)) < 0) {
+    if ((ret = AndroidBitmap_lockPixels(env, bitmap, (void **)&pixelsColor)) < 0) {
         LOGD("AndroidBitmap_lockPixels() failed error=%d", ret);
         return ret;
     }
@@ -106,6 +91,7 @@ Java_com_blueberry_compress_ImageCompress_nativeCompressBitmap(JNIEnv *env, jcla
     free((void *) tmpData);
     return ret;
 }
+
 
 int generateJPEG(BYTE *data, int w, int h, int quality, const char *name, boolean optimize) {
     int nComponent = 3;
